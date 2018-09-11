@@ -1,9 +1,15 @@
 {
   "name": "typeorm-naming-strategies",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Custom naming strategies for typeorm",
   "main": "index.js",
   "types": "index.d.ts",
+  "keywords": [
+    "typeorm",
+    "naming strategy",
+    "snake strategy",
+    "typeorm snake"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/xxxtonixxx/typeorm-naming-strategies"

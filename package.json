@@ -1,14 +1,19 @@
 {
   "name": "typeorm-naming-strategies",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Custom naming strategies for typeorm",
   "main": "index.js",
   "types": "index.d.ts",
   "keywords": [
     "typeorm",
+    "naming",
+    "strategy",
+    "node",
+    "orm",
     "naming strategy",
     "snake strategy",
-    "typeorm snake"
+    "typeorm snake",
+    "naming strategies"
   ],
   "repository": {
     "type": "git",
@@ -17,17 +22,17 @@
   "author": "Toni Villena",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist && tsc && cp README.md package.json dist/",
-    "build:watch": "tsc -w"
+    "build": "rm -rf dist && npm run tsc && cp README.md package.json dist/",
+    "tsc": "tsc"
   },
   "dependencies": {},
-  "peerDependencies": {
-    "typeorm": "^0.2"
-  },
   "devDependencies": {
     "@types/node": "^9.4.6",
+    "tslint": "^5.11.0",
     "typeorm": "^0.2",
-    "tslint": "^5.9.1",
-    "typescript": "^2.7.2"
+    "typescript": "^3.0.3"
+  },
+  "peerDependencies": {
+    "typeorm": "^0.2.7"
   }
 }

@@ -1,14 +1,44 @@
-# typeorm-naming-strategies
+# Typeorm naming strategies
 
-Custom naming strategies for typeorm
+This package provides a few (one, at the moment) useful custom naming strategies. It alterates the name of columns, relations and other fields in database.
 
-# How to use
+For example, using the snake strategy, if you have a model like this:
 
 ```typescript
+class User {
+  @Column()
+  createdAt;
+}
+```
+
+In the DB the `createdAt` field will be `created_at`
+
+## Naming strategies available
+
+- Snake
+
+## Installation
+
+It's available as an [npm package](https://www.npmjs.com/package/typeorm-naming-strategies)
+
+```sh
+npm install typeorm-naming-strategies --save
+```
+
+Or using yarn
+
+```sh
+yarn add typeorm-naming-strategies
+```
+
+## Usage
+
+```typescript
+import { createConnection } from 'typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 await createConnection({
   ...
-  namingStrategy: new SnakeNamingStrategy(),
+  namingStrategy: new SnakeNamingStrategy(), // Here you'r using the strategy!
 });
 ```

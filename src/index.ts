@@ -1,1 +1,1 @@
-export { SnakeNamingStrategy } from 'snake-naming.strategy';
+export { SnakeNamingStrategy } from './snake-naming.strategy';

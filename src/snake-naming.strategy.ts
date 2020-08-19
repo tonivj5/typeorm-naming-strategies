@@ -16,7 +16,7 @@ export class SnakeNamingStrategy extends DefaultNamingStrategy
     embeddedPrefixes: string[],
   ): string {
     return (
-      snakeCase(embeddedPrefixes.join('_')) +
+      snakeCase(embeddedPrefixes.concat('').join('_')) +
       (customName ? customName : snakeCase(propertyName))
     );
   }

@@ -4,7 +4,8 @@
 import { DefaultNamingStrategy, NamingStrategyInterface } from 'typeorm';
 import { snakeCase } from 'typeorm/util/StringUtils';
 
-export class SnakeNamingStrategy extends DefaultNamingStrategy
+export class SnakeNamingStrategy
+  extends DefaultNamingStrategy
   implements NamingStrategyInterface {
   tableName(className: string, customName: string): string {
     return customName ? customName : snakeCase(className);
@@ -16,7 +17,7 @@ export class SnakeNamingStrategy extends DefaultNamingStrategy
     embeddedPrefixes: string[],
   ): string {
     return (
-      snakeCase(embeddedPrefixes.concat('').join('_')) +
+      snakeCase(embeddedPrefixes.join('_')) +
       (customName ? customName : snakeCase(propertyName))
     );
   }

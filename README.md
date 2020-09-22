@@ -42,3 +42,15 @@ await createConnection({
   namingStrategy: new SnakeNamingStrategy(), // Here you'r using the strategy!
 });
 ```
+
+Alternatively you can use it in combination with a `ormconfig.js`
+
+```js
+// Use require instead of import
+const SnakeNamingStrategy = require("typeorm-naming-strategies").SnakeNamingStrategy
+
+module.exports = {
+  ...
+  namingStrategy: new SnakeNamingStrategy(),
+}
+```

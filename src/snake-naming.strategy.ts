@@ -2,7 +2,7 @@
 // https://gist.github.com/recurrence/b6a4cb04a8ddf42eda4e4be520921bd2
 
 import { DefaultNamingStrategy, NamingStrategyInterface } from 'typeorm';
-import { snakeCase } from 'typeorm/util/StringUtils.js';
+import { snakeCase } from 'typeorm/util/StringUtils';
 
 export class SnakeNamingStrategy
   extends DefaultNamingStrategy

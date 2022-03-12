@@ -1,6 +1,6 @@
 {
   "name": "typeorm-naming-strategies",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Custom naming strategies for typeorm",
   "main": "index.js",
   "types": "index.d.ts",

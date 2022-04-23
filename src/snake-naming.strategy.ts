@@ -8,7 +8,7 @@ export class SnakeNamingStrategy
   extends DefaultNamingStrategy
   implements NamingStrategyInterface {
   tableName(className: string, customName: string): string {
-    return customName ? customName : snakeCase(className);
+    return customName || snakeCase(className);
   }
 
   columnName(
@@ -18,7 +18,7 @@ export class SnakeNamingStrategy
   ): string {
     return (
       snakeCase(embeddedPrefixes.concat('').join('_')) +
-      (customName ? customName : snakeCase(propertyName))
+      (customName || snakeCase(propertyName))
     );
   }
 
@@ -50,9 +50,7 @@ export class SnakeNamingStrategy
     propertyName: string,
     columnName?: string,
   ): string {
-    return snakeCase(
-      tableName + '_' + (columnName ? columnName : propertyName),
-    );
+    return snakeCase(tableName + '_' + (columnName || propertyName));
   }
 
   classTableInheritanceParentColumnName(

@@ -87,4 +87,8 @@ export class SnakeNamingStrategy
     const name = tableOrName instanceof  Table ? tableOrName.name : tableOrName;
     return `rel_${name}_${columnNames.join('_')}`;
   }
+
+  eagerJoinRelationAlias(alias: string, propertyPath: string): string {
+    return alias + '__' + propertyPath.replace('.', '_');
+  }
 }

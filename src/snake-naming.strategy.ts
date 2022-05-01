@@ -3,6 +3,7 @@
 
 import { DefaultNamingStrategy, NamingStrategyInterface } from 'typeorm';
 import { snakeCase } from 'typeorm/util/StringUtils';
+import {Table} from "typeorm/schema-builder/table/Table";
 
 export class SnakeNamingStrategy
   extends DefaultNamingStrategy
@@ -60,6 +61,31 @@ export class SnakeNamingStrategy
     parentTableIdPropertyName: any,
   ): string {
     return snakeCase(parentTableName + '_' + parentTableIdPropertyName);
+  }
+
+  foreignKeyName(tableOrName: Table | string, columnNames: string[], _referencedTablePath?: string, _referencedColumnNames?: string[]): string {
+    const name = _referencedTablePath + '_' + columnNames.join('_');
+    return`fk_${name}`
+  }
+
+  indexName(tableOrName: Table | string, columnNames: string[], where?: string): string {
+    const name = tableOrName instanceof  Table ? tableOrName.name : tableOrName;
+    return`index_${name}_${columnNames.join('_')}`
+  }
+
+  primaryKeyName(tableOrName: Table | string, columnNames: string[]): string {
+    const name = tableOrName instanceof  Table ? tableOrName.name : tableOrName;
+    return `pk_${name}_${columnNames.join('_')}`;
+  }
+
+  uniqueConstraintName(tableOrName: Table | string, columnNames: string[]): string {
+    const name = tableOrName instanceof  Table ? tableOrName.name : tableOrName;
+    return `unique_${name}_${columnNames.join('_')}`;
+  }
+
+  relationConstraintName(tableOrName: Table | string, columnNames: string[], where?: string): string {
+    const name = tableOrName instanceof  Table ? tableOrName.name : tableOrName;
+    return `rel_${name}_${columnNames.join('_')}`;
   }
 
   eagerJoinRelationAlias(alias: string, propertyPath: string): string {

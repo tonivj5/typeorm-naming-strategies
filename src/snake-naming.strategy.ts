@@ -55,13 +55,6 @@ export class SnakeNamingStrategy
     );
   }
 
-  classTableInheritanceParentColumnName(
-    parentTableName: any,
-    parentTableIdPropertyName: any,
-  ): string {
-    return snakeCase(parentTableName + '_' + parentTableIdPropertyName);
-  }
-
   eagerJoinRelationAlias(alias: string, propertyPath: string): string {
     return alias + '__' + propertyPath.replace('.', '_');
   }
